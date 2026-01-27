@@ -7,6 +7,8 @@ kubectl run myserver2 --image blux2/hello-server:2.4 --namespace default
 
 kubectl get pods -n default
 
+kubectl describe pod myserver -n default
+
 ## outputオプション
 
 outputオプションでは割り当てられれたipアドレスやnode名など詳細情報を確認できる。
