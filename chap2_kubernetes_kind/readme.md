@@ -9,3 +9,8 @@ kind create cluster --image=kindest/node:v1.29.0
 ``` bash
 kubectl cluster-info --context kind-kind
 ```
+
+クラスターの削除
+``` bash
+kind delete cluster
+```
