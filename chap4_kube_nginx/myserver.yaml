@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myserver
+  labels:
+    app: myserver
+spec:
+  containers:
+  - name: hello-server
+    image: blux2/hello-server:2.4
+    ports:
+    - containerPort: 8080
