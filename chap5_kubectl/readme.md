@@ -32,3 +32,13 @@ kubectl get pod myserver --output jsonpath='{.spec.containers[].image}' -n defau
 rest apiを確認できる。
 
 kubectl get pod myserver -v=7 --namespace default
+
+## debug用コンテナの立ち上げ
+
+kubectl debug --stdin --tty myserver --image=curlimages/curl:8.4.0 --target=hello-server --namespace default -- sh
+
+## port-forward
+kubectl port-forward nginx 5555:80 --namespace default  
+kubectl port-forward myserver 5555:8080 --namespace default  
+
+## 
