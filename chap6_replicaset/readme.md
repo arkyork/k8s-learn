@@ -18,6 +18,10 @@ ReplicaSetの確認
 kubectl get replicaset --namespace default
 ```
 
+後始末
+```bash
+kubectl delete -f .\chap6_replicaset\replica.yaml --namespace default
+```
 ## Deployment
 - ReplicaSetはPodと同様に、本番環境では非推奨
 - Deploymentを使う
@@ -28,6 +32,33 @@ kubectl get replicaset --namespace default
 ```bash
 kubectl apply --filename chap6_replicaset/deploy.yaml --namespace default    
 ```
-
-
+後始末
 ```bash
+kubectl delete -f ./chap6_replicaset/deploy.yaml --namespace default
+```
+
+## Rolling Update(Strategy)
+
+Strategy TypeにはRecreateとRollingUpdateの2種類がある
+
+変化を見るために、watchで確認.
+```bash
+kubectl get pod -w --namespace default
+```
+
+### Recreate
+```bash
+kubectl apply --filename chap6_replicaset/recreate.yaml --namespace default    
+```
+
+podが一斉に入れ替わる
+
+後始末
+```bash
+kubectl delete -f ./chap6_replicaset/recreate.yaml --namespace default
+```
+
+### RollingUpdate
+```bash
+kubectl apply --filename chap6_replicaset/rollingupdate.yaml --namespace default
+```
